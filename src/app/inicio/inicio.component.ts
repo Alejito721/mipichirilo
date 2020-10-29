@@ -19,17 +19,10 @@ export class InicioComponent implements OnInit {
   }
   ngOnInit(): void {
     console.log(this.router.snapshot.queryParams);
-    if(this.router.snapshot.queryParams.media === 'fb'){
-      this.signInWithFB();
     
-    }
-  }
+  
 
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(response => {
-    this.user = JSON.parse(localStorage.getItem('user'));
-    this.firstName = this.user.firstName;
-  });
+  
 
   }
   

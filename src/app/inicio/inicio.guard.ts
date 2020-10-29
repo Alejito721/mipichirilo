@@ -1,5 +1,5 @@
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { GoogleLoginProvider, AuthService } from 'angularx-social-login';
+import { GoogleLoginProvider, AuthService, FacebookLoginProvider } from 'angularx-social-login';
 import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
@@ -16,6 +16,12 @@ export class InicioGuard implements CanActivate {
           if(next.queryParams.media === 'ggle'){
             this.signInWithGoogle();
         }
+        else if(next.queryParams.media === 'fb'){
+            this.signInWithFB();
+        }
+        else{
+            return true;
+        }
         return this.inicioResolve;
     }
 
@@ -30,4 +36,13 @@ export class InicioGuard implements CanActivate {
       }).catch(e =>{
           console.log(e);
       })}
+
+      signInWithFB(): void {
+        this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(response => {
+        //this.user = JSON.parse(localStorage.getItem('user'));
+        //this.firstName = this.user.firstName;
+        this.inicioResolve = true;
+        console.log(response);
+
+      });}
 }
