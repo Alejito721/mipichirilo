@@ -24,7 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+          
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -119,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mipichirilo"
+    }
+  },
+  "defaultProject": "mipichirilo",
+  "cli": {
+    "analytics": "edaee8d5-e59e-4a9c-b20c-702c12b8aabe"
+  }
 }
